@@ -89,7 +89,7 @@ export class Hud {
     this.corners(pose, info);
   }
 
-  // ---- labels in screen space, Hertzian style: a tick, a name, a value ----
+  // ---- labels in screen space: a tick, a name, a value ----
   place(targets, pose) {
     const c = this.ctx, full = this.level === 2, hover = this.ringAlpha <= 0, pick = this.mode.pick;
     const cx = hover ? pick?.x : this.W / 2, cy = hover ? pick?.y : this.H / 2;
@@ -280,7 +280,7 @@ export class Hud {
       g.globalCompositeOperation = 'source-over';
       const row = g.createImageData(w, 1), d = row.data, pal = [0, 1, 3].map(r => css(r)).map(h => [1, 3, 5].map(i => parseInt(h.substr(i, 2), 16)));
       const put = (x, role) => { const p = pal[role], o = x * 4; d[o] = p[0]; d[o + 1] = p[1]; d[o + 2] = p[2]; d[o + 3] = 255; };
-      // energy per cell: crowded bands get dense, but never a flat slab — Hertzian texture
+      // energy per cell: crowded bands get dense, but never a flat slab
       const e = new Float32Array(w), peak = new Float32Array(w);
       for (const q of inView) {
         if (q.f < F_MIN || q.f > F_MAX) continue;
@@ -321,7 +321,7 @@ export class Hud {
       this.text(name, x, yTop + hPx + 27, 1, SMALL);
       lastX = x + this.textWidth(name);
     }
-    // the loudest things in view, labelled the Hertzian way
+    // the loudest things in view, labelled with a tick, a name and a frequency
     let right = -1e9;
     for (const q of inView.filter(q => q.p > 0.2).sort((a, b) => fx(a.f) - fx(b.f) || b.p - a.p)) {
       const x = fx(q.f) * this.W;

@@ -1,5 +1,5 @@
 // bands.js — who owns which slice of the spectrum (US allocations, MHz).
-// Used by the bottom-edge spectrum ruler, Hertzian Landscapes style.
+// Used by the bottom-edge spectrum ruler.
 export const ALLOCATIONS = [
   [0.53, 1.71, 'AM'], [3, 30, 'SHORTWAVE'], [54, 88, 'TV VHF'], [88, 108, 'FM'],
   [118, 137, 'AIRBAND'], [137, 138, 'WX SAT'], [144, 148, 'HAM 2M'], [156, 162.6, 'MARINE · NOAA WX'],

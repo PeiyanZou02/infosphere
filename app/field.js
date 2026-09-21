@@ -43,7 +43,7 @@ const km = m => m < 1000 ? `${Math.round(m)} m` : `${(m / 1000).toFixed(m < 1e4 
 export const mhz = f => f < 3 ? `${Math.round(f * 1000)} kHz` : f >= 3000 ? `${(f / 1000).toFixed(3)} GHz` : `${(+f).toFixed(f < 200 ? 1 : 0)} MHz`;
 const bearing = az => `${((az / DEG + 360) % 360).toFixed(1)}°`;
 
-// ---------- floor: Ikeda dot grid, log range rings, and you ----------
+// ---------- floor: dot grid, log range rings, and you ----------
 {
   const floor = new BlockCloud(28000);
   const N = 82, STEP = 6;
