@@ -1,0 +1,18 @@
+# secrets: the self-signed HTTPS key pair is generated on first start
+data/*.pem
+
+# caches rebuilt at runtime
+data/*_cache.json
+data/*.tmp
+__pycache__/
+*.pyc
+
+# raw FCC dumps (60 MB) — only the derived CSVs are needed; see tools/import_fm.py
+data/*.dat
+data/*.zip
+
+# third-party reference images, not ours to redistribute
+reference-*
+
+.DS_Store
+Thumbs.db

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>INFOSPHERE</title>
+<style>
+  :root { --bg: #000000; }
+  html, body { margin: 0; height: 100%; background: var(--bg); overflow: hidden;
+               touch-action: none; user-select: none; -webkit-user-select: none; }
+  #camera, #scene, #hud { position: fixed; inset: 0; width: 100%; height: 100%; }
+  /* camera passthrough stays subordinate: grey, hard, dark */
+  #camera { object-fit: cover; filter: grayscale(1) contrast(1.7) brightness(.38); }
+  #scene canvas { display: block; image-rendering: pixelated; }
+  #hud { pointer-events: none; }
+  #controls { position: fixed; left: 196px; top: 66px; right: 236px; display: flex; flex-wrap: wrap;
+              gap: 2px 10px; font: 9px ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  #layers { display: contents; }
+  button { all: unset; cursor: pointer; color: #6a6a6a; letter-spacing: .08em; padding: 3px 0; }
+  button::before { content: '□ '; }
+  button.on { color: #fff; }
+  button.on::before { content: '■ '; }
+  button.act::before, button.act.on::before { content: '› '; }
+  @media (max-width: 720px) { #controls { left: 14px; right: 14px; top: auto; bottom: 108px; } }
+</style>
+</head>
+<body>
+<video id="camera" playsinline muted></video>
+<div id="scene"></div>
+<canvas id="hud"></canvas>
+<div id="controls">
+  <button id="btn-ar" title="use the device's orientation sensors">ar</button>
+  <button id="btn-cam" title="camera passthrough (off by default)">camera</button>
+  <button id="btn-view" class="act" title="wheel / pinch zooms continuously · O · double-click returns">zoom out</button>
+  <button id="btn-hud" class="act" title="H">instruments</button>
+  <span id="layers"></span>
+</div>
+<script src="./vendor/satellite.min.js"></script>
+<script type="importmap">{ "imports": { "three": "./vendor/three.module.js" } }</script>
+<script type="module" src="./main.js"></script>
+</body>
+</html>

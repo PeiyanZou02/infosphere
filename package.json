@@ -1,0 +1,9 @@
+{
+  "name": "infosphere",
+  "version": "4.2.0",
+  "description": "An AR signal field in hard-edged pixel blocks: live WiFi / BLE / TCP, ADS-B, radiosondes, 12 000 satellites, FCC broadcast, OSM masts and hotspots, space weather, pulsars.",
+  "scripts": {
+    "dev": "python server.py",
+    "import:broadcast": "python tools/import_broadcast.py"
+  }
+}
