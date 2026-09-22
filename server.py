@@ -633,7 +633,8 @@ def serve_https(port, ip):
 
 
 if __name__ == "__main__":
-    port, https_port, use_https = 8000, 8443, True
+    # PORT is set by dev-server launchers that pick a free port; an explicit argument still wins
+    port, https_port, use_https = int(os.environ.get("PORT") or 8000), 8443, True
     args = sys.argv[1:]
     for i, a in enumerate(args):
         if a == "--port" and i + 1 < len(args):

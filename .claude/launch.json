@@ -4,8 +4,9 @@
     {
       "name": "infosphere",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["server.py", "8000"],
-      "port": 8000
+      "runtimeArgs": ["server.py"],
+      "port": 8000,
+      "autoPort": true
     }
   ]
 }
